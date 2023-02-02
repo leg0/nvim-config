@@ -1,0 +1,1 @@
+au BufRead,BufNewFile [Cc][Mm]ake[Ll]ists.txt                set filetype=cmake
