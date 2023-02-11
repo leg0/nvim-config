@@ -6,11 +6,13 @@ vim.api.nvim_command('set number')
 vim.api.nvim_command('set numberwidth=5')
 
 vim.api.nvim_command('set cursorline')
-vim.api.nvim_command('hi clear CursorLine')
-vim.api.nvim_command('hi clear CursorLineNr')
-vim.api.nvim_command('hi CursorLine cterm=NONE ctermbg=236 guibg=236')
-vim.api.nvim_command('hi CursorLineNr cterm=NONE ctermbg=236 ctermfg=red guifg=red')
+vim.api.nvim_command('colorscheme habamax')
+-- vim.api.nvim_command('hi clear CursorLine')
+-- vim.api.nvim_command('hi clear CursorLineNr')
+-- vim.api.nvim_command('hi CursorLine cterm=NONE ctermbg=236 guibg=236')
+-- vim.api.nvim_command('hi CursorLineNr cterm=NONE ctermbg=236 ctermfg=red guifg=red')
 
+vim.api.nvim_command('hi Normal guibg=NONE ctermbg=NONE')
 
 -- local use = require('packer').use
 require('packer').startup(function(use)
@@ -61,6 +63,12 @@ require('lspconfig')['tsserver'].setup{
     flags = lsp_flags,
 }
 require'lspconfig'.neocmake.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
+-- On ubuntu install 'sudo apt install clangd'
+-- On Windows, make sure that clangd.exe from LLVM is in the path, or TODO: set cmd
+require'lspconfig'.clangd.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
