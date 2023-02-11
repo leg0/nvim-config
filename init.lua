@@ -62,12 +62,14 @@ require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
+-- Install language server: 'cargo install neocmakelsp'
 require'lspconfig'.neocmake.setup{
     on_attach = on_attach,
     flags = lsp_flags,
 }
--- On ubuntu install 'sudo apt install clangd'
--- On Windows, make sure that clangd.exe from LLVM is in the path, or TODO: set cmd
+-- To install language server:
+--  * On ubuntu 'sudo apt install clangd'
+--  * On Windows, make sure that clangd.exe from LLVM is in the path, or TODO: set cmd
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,
     flags = lsp_flags,
