@@ -14,7 +14,10 @@ vim.api.nvim_command('colorscheme habamax')
 -- vim.api.nvim_command('hi CursorLineNr cterm=NONE ctermbg=236 ctermfg=red guifg=red')
 
 vim.api.nvim_command('hi Normal guibg=NONE ctermbg=NONE')
+-- Override ugly highlight for some cmake's keywords
+vim.api.nvim_command('hi ModeMsg guibg=NONE ctermbg=NONE ctermfg=173 guifg=#d7875f')
+
 
 require('plugins')
 require('lsp-clients')
-
+require('treesitter')
