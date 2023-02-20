@@ -2,7 +2,6 @@ vim.api.nvim_command('set tabstop=4')
 vim.api.nvim_command('set shiftwidth=4')
 vim.api.nvim_command('set expandtab')
 vim.api.nvim_command('set nowrap')
-
 vim.api.nvim_command('set number')
 vim.api.nvim_command('set numberwidth=5')
 
@@ -17,6 +16,7 @@ vim.api.nvim_command('hi Normal guibg=NONE ctermbg=NONE')
 -- Override ugly highlight for some cmake's keywords
 vim.api.nvim_command('hi ModeMsg guibg=NONE ctermbg=NONE ctermfg=173 guifg=#d7875f')
 
+vim.api.nvim_command('set guifont=Cascadia\\ Mono\\ ExtraLight:h10')
 
 require('plugins')
 require('lsp-clients')
