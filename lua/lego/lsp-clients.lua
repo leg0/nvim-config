@@ -1,10 +1,10 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-local opts = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
+local lsp_flags = { noremap=true, silent=true }
+vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, lsp_flags)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, lsp_flags)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, lsp_flags)
+vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, lsp_flags)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -37,6 +37,9 @@ end
 require('lspconfig')['pyright'].setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    root_dir = function()
+        return vim.fs.dirname(vim.fs.find({'setup.py'}, { upward = true })[1])
+    end,
 }
 require('lspconfig')['tsserver'].setup{
     on_attach = on_attach,
