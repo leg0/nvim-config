@@ -23,15 +23,15 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
+        print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+      end, bufopts)
   vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
   vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
-    vim.keymap.set('n', '<space>dn', vim.diagnostic.goto_next, bufopts)
+  vim.keymap.set('n', '<space>dn', vim.diagnostic.goto_next, bufopts)
 end
 
 require('lspconfig')['pyright'].setup{
@@ -56,6 +56,13 @@ require'lspconfig'.neocmake.setup{
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,
     flags = lsp_flags,
+    cmd = (function()
+        if vim.fn.has('win32') then
+            return { "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/bin/clangd.exe" }
+        else
+            return nil
+        end
+    end)()
 }
 --
 --require('lspconfig')['rust_analyzer'].setup{
