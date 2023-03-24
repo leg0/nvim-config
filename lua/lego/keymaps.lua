@@ -29,3 +29,9 @@ keymap("v", "<A-k>", ":m .--<cr>gv", opts)
 keymap("v", "<", "<gv", opts)
 keymap("v", ">", ">gv", opts)
 
+-- Keep search result in the middle of the screen
+keymap("n", "n", "nzz", opts)
+
+-- Toggle comments
+keymap("n", "<C-_>", ":CommentToggle<cr>", opts)
+keymap("v", "<C-_>", ":CommentToggle<cr>gv", opts)

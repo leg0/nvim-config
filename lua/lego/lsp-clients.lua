@@ -31,7 +31,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
 
-  vim.keymap.set('n', '<space>dn', vim.diagnostic.goto_next, bufopts)
+  --vim.keymap.set('n', '<space>dn', vim.diagnostic.goto_next, bufopts)
 end
 
 require('lspconfig')['pyright'].setup{
@@ -52,16 +52,18 @@ require'lspconfig'.neocmake.setup{
 }
 -- To install language server:
 --  * On ubuntu 'sudo apt install clangd'
---  * On Windows, make sure that clangd.exe from LLVM is in the path, or TODO: set cmd
+--  * On Windows, make sure that clangd.exe from LLVM is in the path or use the one bundled with Visual Studio
 require'lspconfig'.clangd.setup{
     on_attach = on_attach,
     flags = lsp_flags,
     cmd = (function()
-        if vim.fn.has('win32') then
-            return { "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/bin/clangd.exe" }
-        else
+        if vim.fn.has('linux') then
             return nil
         end
+        if vim.fn.has('win32') then
+            return { "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/Llvm/bin/clangd.exe" }
+        end
+        return nil
     end)()
 }
 --

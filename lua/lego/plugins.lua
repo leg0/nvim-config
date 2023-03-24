@@ -25,4 +25,6 @@ require('packer').startup(function(use)
       ts_update()
     end,
   }
+  use 'terrortylor/nvim-comment'
 end)
+
