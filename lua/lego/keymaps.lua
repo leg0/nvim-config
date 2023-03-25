@@ -18,12 +18,12 @@ vim.g.maplocalleader = " "
 keymap("n", "<leader>e", ":Lexplore 30<CR>", opts)
 
 -- Move single line up and down in normal mode
-keymap("n", "<A-j>", ":m .+<CR>", opts)
-keymap("n", "<A-k>", ":m .--<CR>", opts)
+keymap("n", "<A-Up>", ":m .--<CR>", opts)
+keymap("n", "<A-Down>", ":m .+<CR>", opts)
 
 -- Move selection up and down in visual mode
-keymap("v", "<A-j>", ":<C-u>exec \"'<,'>m \" . (line(\"'>\") + 1)<CR>gv", opts)
-keymap("v", "<A-k>", ":m .--<cr>gv", opts)
+keymap("v", "<A-Up>", ":m .--<cr>gv", opts)
+keymap("v", "<A-Down>", ":<C-u>exec \"'<,'>m \" . (line(\"'>\") + 1)<CR>gv", opts)
 
 -- Stay in visual mode after indenting
 keymap("v", "<", "<gv", opts)
@@ -32,6 +32,7 @@ keymap("v", ">", ">gv", opts)
 -- Keep search result in the middle of the screen
 keymap("n", "n", "nzz", opts)
 
--- Toggle comments
+-- Toggle comments (Ctrl+/)
 keymap("n", "<C-_>", ":CommentToggle<cr>", opts)
 keymap("v", "<C-_>", ":CommentToggle<cr>gv", opts)
+
