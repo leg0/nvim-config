@@ -15,6 +15,8 @@ local on_attach = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  vim.keymap.set('i', '<C-space>', vim.lsp.buf.completion, bufopts)
+
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
@@ -66,15 +68,12 @@ require'lspconfig'.clangd.setup{
         return nil
     end)()
 }
---
---require('lspconfig')['rust_analyzer'].setup{
---    on_attach = on_attach,
---    flags = lsp_flags,
---    -- Server-specific settings...
---    settings = {
---      ["rust-analyzer"] = {}
---    }
---}
+
+require('lspconfig').rust_analyzer.setup{
+    on_attach = on_attach,
+    flags = lsp_flags,
+    -- Server-specific settings...
+}
 
 --vim.lsp.start({
   -- name = 'my-server-name',
