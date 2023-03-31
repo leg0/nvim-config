@@ -15,7 +15,8 @@ vim.g.maplocalleader = " "
 
 -- Open file explorer on <space>e
 -- keep pasting the same thing, not the stuff that was replaced?
-keymap("n", "<leader>e", ":Lexplore 30<CR>", opts)
+--keymap("n", "<leader>e", ":Lexplore 30<CR>", opts)
+keymap("n", "<leader>e", ":NvimTreeOpen<CR>", opts)
 
 -- Move single line up and down in normal mode
 keymap("n", "<A-Up>", ":m .--<CR>", opts)
