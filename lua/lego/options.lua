@@ -1,3 +1,7 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+
 vim.api.nvim_command('set tabstop=4')
 vim.api.nvim_command('set shiftwidth=4')
 vim.api.nvim_command('set expandtab')
