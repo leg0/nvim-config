@@ -37,3 +37,9 @@ keymap("n", "n", "nzz", opts)
 keymap("n", "<C-_>", ":CommentToggle<cr>", opts)
 keymap("v", "<C-_>", ":CommentToggle<cr>gv", opts)
 
+-- Move between splits with Ctrl+Arrow
+keymap("n", "<C-Up>", "<C-W>k", opts)
+keymap("n", "<C-Down>", "<C-W>j", opts)
+keymap("n", "<C-Left>", "<C-W>h", opts)
+keymap("n", "<C-Right>", "<C-W>l", opts)
+
