@@ -1,7 +1,7 @@
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local lsp_flags = { noremap=true, silent=true }
-vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, lsp_flags)
+vim.keymap.set('n', '<space>w', vim.diagnostic.open_float, lsp_flags)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, lsp_flags)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, lsp_flags)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, lsp_flags)
