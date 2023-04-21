@@ -24,7 +24,7 @@ require('packer').startup(function(use)
   -- TODO: null-ls.nvim or nvim-lint
   -- TODO: formatter.nvim
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1', -- or , branch = '0.1.x',
+    'nvim-telescope/telescope.nvim', tag = '0.1.1',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {
@@ -35,20 +35,28 @@ require('packer').startup(function(use)
     end,
   }
   use 'terrortylor/nvim-comment'
+  use 'nvim-lualine/lualine.nvim'
   use {
+        -- TODO: move config to separate file
     'nvim-tree/nvim-tree.lua',
-    requires = {
-      'nvim-tree/nvim-web-devicons', -- optional
-    },
+    requires = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require("nvim-tree").setup {
         view = {
           width = 50,
+        },
+        renderer = {
+          icons = {
+            show = {
+              git = true,
+              folder = true,
+              file = true,
+              folder_arrow = true,
+            },
+          },
         }
       }
     end
   }
-
-  use 'nvim-lualine/lualine.nvim'
 end)
 
