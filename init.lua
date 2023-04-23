@@ -1,5 +1,6 @@
 require('lego.options')
 require('lego.plugins')
+require('lego.mason-config')
 require('lego.lsp-clients')
 require('lego.telescope')
 require('lego.treesitter')

@@ -75,6 +75,10 @@ require('lspconfig').rust_analyzer.setup{
     -- Server-specific settings...
 }
 
+require('lspconfig').lua_ls.setup {
+    on_attach = on_attach,
+    flags = lsp_flags,
+}
 --vim.lsp.start({
   -- name = 'my-server-name',
   -- cmd = {'name-of-language-server-executable'},
