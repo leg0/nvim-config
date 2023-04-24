@@ -1,22 +1,24 @@
--- require('telescope').setup {
+require('telescope').setup {
 --     defaults = {},
 --     pickers = {},
 --     extensions = {}
--- }
+}
 
+-- Telescope
+local opts = function(desc)
+  return { desc = desc, noremap = true, silent = true }
+end
 local builtin = require('telescope.builtin')
-local keymap = vim.keymap.set
+local keymap_fn = vim.keymap.set
+keymap_fn('n', '<leader>tr', builtin.resume,       opts 'Telescope: resume')
 
-keymap('n', '<leader>fr', builtin.resume, { desc = 'Telescope: resume' })
+keymap_fn('n', '<leader>tf', builtin.find_files,   opts 'Telescope: find files')
+keymap_fn('n', '<leader>tg', builtin.live_grep,    opts 'Telescope: live grep')
+keymap_fn('n', '<leader>ts', builtin.grep_string,  opts 'Telescope: grep string under cursor')
+keymap_fn('n', '<leader>tb', builtin.buffers,      opts 'Telescope: buffers')
+keymap_fn('n', '<leader>tk', builtin.keymaps,      opts 'Telescope: keymaps')
+-- keymap('n', '<leader>fh', builtin.help_tags, opts 'Telescope: help tags')
 
--- Find/grep
-keymap('n', '<leader>ff', builtin.find_files, { desc = 'Telescope: find files' })
-keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope: live grep' })
-keymap('n', '<leader>fs', builtin.grep_string, { desc = 'Telescope: grep string under cursor' })
-keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope: buffers' })
--- keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope: help tags' })
-
--- Git related pickers
-keymap('n', '<leader>gf', builtin.git_files, { desc = 'Telescope: git files' })
-keymap('n', '<leader>gs', builtin.git_stash, { desc = 'Telescope: git stashes' })
-keymap('n', '<leader>gb', builtin.git_branches, { desc = 'Telescope: git branches' })
+keymap_fn('n', '<leader>gf', builtin.git_files,    opts 'Telescope: git files')
+keymap_fn('n', '<leader>gs', builtin.git_stash,    opts 'Telescope: git stashes')
+keymap_fn('n', '<leader>gb', builtin.git_branches, opts 'Telescope: git branches')
