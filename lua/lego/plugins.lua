@@ -59,5 +59,6 @@ require('packer').startup(function(use)
     end
   }
   use 'akinsho/bufferline.nvim'
+  use 'lewis6991/gitsigns.nvim'
 end)
 
