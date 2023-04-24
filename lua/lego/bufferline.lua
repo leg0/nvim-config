@@ -1,7 +1,14 @@
 vim.opt.termguicolors = false
+
+local opts = function(desc)
+  return { desc = desc, noremap = true, silent = true }
+end
+vim.keymap.set('n', '<S-Right>', ':BufferLineCycleNext<cr>', opts 'Next tab')
+vim.keymap.set('n', '<S-Left>', ':BufferLineCyclePrev<cr>',  opts 'Previous tab')
+
 require('bufferline').setup {
   options = {
---    numbers = "ordinal",
+    numbers = "none",
     -- number_style = "superscript",
     themable = true,
     mappings = true,
@@ -10,9 +17,9 @@ require('bufferline').setup {
     close_icon = "",
     left_trunc_marker = "",
     right_trunc_marker = "",
-    max_name_length = 19,
+    max_name_length = 23,
     max_prefix_length = 15,
-    tab_size = 22,
+    tab_size = 27,
     show_tab_indicators = true,
     enforce_regular_tabs = false,
     view = "multiwindow",
@@ -21,6 +28,7 @@ require('bufferline').setup {
     always_show_bufferline = true,
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(count, level)
+      -- TODO: don't show errors for current buffer
       local icon = level:match("error") and " " or " "
       return " " .. icon .. count
     end,
