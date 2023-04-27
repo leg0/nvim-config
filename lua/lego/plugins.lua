@@ -24,7 +24,7 @@ require('packer').startup(function(use)
   -- TODO: null-ls.nvim or nvim-lint
   -- TODO: formatter.nvim
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.1',
+    'nvim-telescope/telescope.nvim',
     requires = { {'nvim-lua/plenary.nvim'} }
   }
   use {
