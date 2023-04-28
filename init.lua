@@ -9,4 +9,5 @@ require('lego.telescope') -- must be after keymaps
 require('lego.lualine')
 require('lego.bufferline')
 require('lego.gitsigns')
+require('lego.which-key')
 
