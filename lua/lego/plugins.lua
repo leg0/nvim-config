@@ -61,5 +61,12 @@ require('packer').startup(function(use)
   use 'akinsho/bufferline.nvim'
   use 'lewis6991/gitsigns.nvim'
   use 'folke/which-key.nvim'
+  use {
+    'ThePrimeagen/harpoon',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+  }
 end)
 

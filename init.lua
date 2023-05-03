@@ -10,4 +10,5 @@ require('lego.lualine')
 require('lego.bufferline')
 require('lego.gitsigns')
 require('lego.which-key')
+require('lego.harpoon')
 
