@@ -19,6 +19,6 @@ vim.api.nvim_command('colorscheme habamax')
 vim.api.nvim_command('hi WinSeparator guibg=NONE ctermbg=NONE')
 vim.api.nvim_command('hi Normal guibg=NONE ctermbg=NONE')
 -- Override ugly highlight for some cmake's keywords
-vim.api.nvim_command('hi ModeMsg guibg=NONE ctermbg=NONE ctermfg=173 guifg=#d7875f')
+-- vim.api.nvim_command('hi ModeMsg guibg=NONE ctermbg=NONE ctermfg=173 guifg=#d7875f')
 
 vim.api.nvim_command('set guifont=Cascadia\\ Mono\\ ExtraLight:h10')
