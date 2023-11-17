@@ -15,11 +15,6 @@ keymap("", "<Space>", "<Nop>", opts 'Nop')
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- File explorer
--- TODO move to nvim-tree.lua
-keymap("n", "<leader>ee", ":NvimTreeOpen<cr>",     opts 'Open file explorer')
-keymap("n", "<leader>ec", ":NvimTreeClose<cr>",    opts 'Close file explorer')
-keymap("n", "<leader>ef", ":NvimTreeFindFile<cr>", opts 'Find file in file explorer')
 
 -- Move single line up and down in normal mode
 keymap("n", "<A-Up>",   ":m .--<CR>", opts 'Move line up')
@@ -36,10 +31,6 @@ keymap("v", ">", ">gv", opts 'Indent right')
 -- Keep search result in the middle of the screen
 keymap("n", "n", "nzz", opts 'Search next')
 keymap("n", "N", "Nzz", opts 'Search previous')
-
--- Toggle comments (Ctrl+/)
-keymap("v", "<C-_>", ":CommentToggle<cr>gv", opts 'Toggle comment')
-keymap("n", "<C-_>", ":CommentToggle<cr>",   opts 'Toggle comment')
 
 -- Move between splits with Ctrl+Arrow
 keymap("n", "<C-Up>", "<C-W>k",    opts 'Move to split above')

@@ -12,3 +12,5 @@ require('lego.gitsigns')
 require('lego.which-key')
 require('lego.harpoon')
 
+require('lego.nvimtree')
+
