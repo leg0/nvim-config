@@ -1,4 +1,5 @@
 require('telescope').setup {
+  -- },
 --     defaults = {},
 --     pickers = {},
 --     extensions = {}
@@ -6,6 +7,18 @@ require('telescope').setup {
 
 -- Show line numbers in telescope preview window
 vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
+
+local git_status_opts = {
+  git_icons = {
+    changed = 'M', --"",
+    added = '+', -- "",
+    removed = '-', --"",
+    copied = "",
+    renamed = "",
+    unmerged = "",
+    untracked = "",
+  }
+}
 
 -- Telescope
 local opts = function(desc)
@@ -23,5 +36,7 @@ keymap_fn('n', '<leader>tk', builtin.keymaps,      opts 'keymaps')
 -- keymap('n', '<leader>fh', builtin.help_tags, opts 'help tags')
 
 keymap_fn('n', '<leader>gf', builtin.git_files,    opts 'git files')
-keymap_fn('n', '<leader>gs', builtin.git_stash,    opts 'git stashes')
+keymap_fn('n', '<leader>gt', builtin.git_stash,    opts 'git stashes')
 keymap_fn('n', '<leader>gb', builtin.git_branches, opts 'git branches')
+keymap_fn('n', '<leader>gs', function() builtin.git_status(git_status_opts) end,   opts 'git status')
+
