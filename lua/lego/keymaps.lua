@@ -15,6 +15,11 @@ keymap("", "<Space>", "<Nop>", opts 'Nop')
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- Navigate between buffers
+keymap('n', '<S-Right>', ':bn<cr>', opts 'Next buffer')
+keymap('i', '<S-Right>', '<Esc>:bn<cr>i', opts 'Next buffer')
+keymap('n', '<S-Left>', ':bp<cr>',  opts 'Previous buffer')
+keymap('i', '<S-Left>', '<Esc>:bp<cr>i',  opts 'Previous buffer')
 
 -- Move single line up and down in normal mode
 keymap("n", "<A-Up>",   ":m .--<CR>", opts 'Move line up')
