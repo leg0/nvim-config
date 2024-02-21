@@ -1,8 +1,24 @@
+local actions = require('telescope.actions')
 require('telescope').setup {
   -- },
 --     defaults = {},
 --     pickers = {},
 --     extensions = {}
+  defaults = {
+    mappings = {
+      i = {
+        ["<Ins>"] = actions.toggle_selection + actions.move_selection_better,
+        ["<S-Up>"] = function(prompt_bufnr)
+          actions.toggle_selection(prompt_bufnr)
+          actions.move_selection_previous(prompt_bufnr)
+        end,
+        ["<S-Down>"] = function(prompt_bufnr)
+          actions.toggle_selection(prompt_bufnr)
+          actions.move_selection_next(prompt_bufnr)
+        end,
+      }
+    }
+  }
 }
 
 -- Show line numbers in telescope preview window
@@ -10,15 +26,19 @@ vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
 
 local git_status_opts = {
   git_icons = {
-    changed = 'M', --"",
-    added = '+', -- "",
-    removed = '-', --"",
+    changed = "",
+    added = "",
+    removed = "",
     copied = "",
     renamed = "",
     unmerged = "",
     untracked = "",
   }
 }
+
+vim.api.nvim_set_hl(0, 'TelescopeResultsDiffAdd', { ctermfg=108, bold=true })
+vim.api.nvim_set_hl(0, 'TelescopeResultsDiffDelete', { ctermfg='red', bold=true })
+vim.api.nvim_set_hl(0, 'TelescopeResultsDiffChange', { ctermfg='red', bold=true })
 
 -- Telescope
 local opts = function(desc)
@@ -39,4 +59,3 @@ keymap_fn('n', '<leader>gf', builtin.git_files,    opts 'git files')
 keymap_fn('n', '<leader>gt', builtin.git_stash,    opts 'git stashes')
 keymap_fn('n', '<leader>gb', builtin.git_branches, opts 'git branches')
 keymap_fn('n', '<leader>gs', function() builtin.git_status(git_status_opts) end,   opts 'git status')
-
