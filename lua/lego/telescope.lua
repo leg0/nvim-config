@@ -39,6 +39,7 @@ local git_status_opts = {
 vim.api.nvim_set_hl(0, 'TelescopeResultsDiffAdd', { ctermfg=108, bold=true })
 vim.api.nvim_set_hl(0, 'TelescopeResultsDiffDelete', { ctermfg='red', bold=true })
 vim.api.nvim_set_hl(0, 'TelescopeResultsDiffChange', { ctermfg='yellow', bold=true })
+vim.api.nvim_set_hl(0, 'TelescopeResultsDiffUntracked', { ctermfg='gray', bold=true })
 
 -- Telescope
 local opts = function(desc)
