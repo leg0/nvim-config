@@ -1,4 +1,5 @@
 local actions = require('telescope.actions')
+
 require('telescope').setup {
   -- },
 --     defaults = {},
@@ -16,6 +17,15 @@ require('telescope').setup {
           actions.toggle_selection(prompt_bufnr)
           actions.move_selection_next(prompt_bufnr)
         end,
+      }
+    }
+  },
+  pickers = {
+    buffers = {
+      mappings = {
+        n = {
+          ["x"] = actions.delete_buffer
+        }
       }
     }
   }
