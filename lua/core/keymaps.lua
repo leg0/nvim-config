@@ -1,24 +1,12 @@
--- Modes
---  n   = Normal mode
---  i   = Insert mode
---  v   = Visual mode
---  x   = Visual block mode
---  t   = Term mode
---  c   = Command mode
-
 local opts = function(desc)
   return { desc = desc, noremap = true, silent = true }
 end
 local keymap = vim.api.nvim_set_keymap
 
-keymap("", "<Space>", "<Nop>", opts 'Nop')
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- Navigate between buffers
-keymap('n', '<S-Right>', ':bn<cr>', opts 'Next buffer')
+keymap('n', '<S-Right>', ':bn<cr>',       opts 'Next buffer')
 keymap('i', '<S-Right>', '<Esc>:bn<cr>i', opts 'Next buffer')
-keymap('n', '<S-Left>', ':bp<cr>',  opts 'Previous buffer')
+keymap('n', '<S-Left>', ':bp<cr>',        opts 'Previous buffer')
 keymap('i', '<S-Left>', '<Esc>:bp<cr>i',  opts 'Previous buffer')
 
 -- Move single line up and down in normal mode
@@ -42,4 +30,3 @@ keymap("n", "<C-Up>", "<C-W>k",    opts 'Move to split above')
 keymap("n", "<C-Down>", "<C-W>j",  opts 'Move to split below')
 keymap("n", "<C-Left>", "<C-W>h",  opts 'Move to split left')
 keymap("n", "<C-Right>", "<C-W>l", opts 'Move to split right')
-
