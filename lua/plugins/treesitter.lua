@@ -5,9 +5,9 @@ return {
   dependencies = {
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
-  init = function()
-    -- vim.opt.runtimepath:append("~/.local/treesitter")
-  end,
+  -- init = function()
+  --   vim.opt.runtimepath:append("~/.local/treesitter")
+  -- end,
   config = function()
     require'nvim-treesitter.configs'.setup {
       parser_install_dir = "~/.local/share/nvim/lazy/nvim-treesitter",
