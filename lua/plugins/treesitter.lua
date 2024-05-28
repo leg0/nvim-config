@@ -1,6 +1,10 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = "VeryLazy",
+  build = ":TSUpdate",
+  event = { "BufReadPre", "BufNewFile" },
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter-textobjects",
+  },
   init = function()
     -- vim.opt.runtimepath:append("~/.local/treesitter")
   end,
@@ -17,9 +21,18 @@ return {
       },
       indent = {
         enable = false,
-      }
+      },
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = "<C-space>",
+          node_incremental = "<C-space>",
+          scope_incremental = false,
+          node_decremental = "<bs>",
+        },
+      },
     }
     -- vim.opt.foldmethod = "expr"
     -- vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-  end
+  end,
 }
