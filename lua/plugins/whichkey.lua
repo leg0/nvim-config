@@ -18,9 +18,6 @@ return {
         z = true,
         g = true
       },
-      motions = {
-        count = true
-      },
       icons = {
         breadcrumb = "»",
         separator = "➜",

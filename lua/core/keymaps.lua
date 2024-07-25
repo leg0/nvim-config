@@ -3,6 +3,10 @@ local opts = function(desc)
 end
 local keymap = vim.api.nvim_set_keymap
 
+-- delete gc and gcc keymaps
+vim.keymap.del('n', 'gc')
+vim.keymap.del('n', 'gcc')
+
 -- Navigate between buffers
 keymap('n', '<S-Right>', ':bn<cr>',       opts 'Next buffer')
 keymap('i', '<S-Right>', '<Esc>:bn<cr>i', opts 'Next buffer')
