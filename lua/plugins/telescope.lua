@@ -60,7 +60,7 @@ local telescope_config = function()
   local keymap_fn = vim.keymap.set
   keymap_fn('n', '<leader>tr', builtin.resume,       opts 'resume')
 
-  keymap_fn('n', '<leader>tf', builtin.find_files,   opts 'find files')
+  keymap_fn('n', '<leader>tf', function() builtin.find_files { no_ignore = true } end,   opts 'find files')
   keymap_fn('n', '<leader>tg', builtin.live_grep,    opts 'live grep')
   keymap_fn('n', '<leader><leader>tg', builtin.current_buffer_fuzzy_find, opts 'fuzzy find in current buffer')
   keymap_fn('n', '<leader>ts', builtin.grep_string,  opts 'grep string under cursor')
