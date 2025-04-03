@@ -52,7 +52,7 @@ local lsp_config = function()
         return vim.fs.dirname(vim.fs.find({'setup.py'}, { upward = true })[1])
     end,
   }
-  require('lspconfig')['tsserver'].setup{
+  require('lspconfig')['ts_ls'].setup{
     on_attach = on_attach,
     flags = lsp_flags(),
   }
