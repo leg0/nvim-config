@@ -19,6 +19,10 @@ local on_attach = function(client, bufnr)
   local bufopts = function(desc)
     return { noremap=true, silent=true, buffer=bufnr, desc = desc }
   end
+  local toggle_inlay_hint = function()
+    local filter = {0}
+    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled(filter), filter)
+  end
   vim.keymap.set('i', '<C-space>', vim.lsp.buf.completion, bufopts 'Trigger completion')
 
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,                 bufopts 'Go to declaration')
@@ -41,6 +45,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next,        lsp_flags 'Go to next diagnostic')
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev,        lsp_flags 'Go to previous diagnostic')
   vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, lsp_flags 'Set loclist')
+  vim.keymap.set('n', '<leader>i', toggle_inlay_hint,        lsp_flags 'Toggle inlay hints')
 end
 
 local lsp_config = function()
