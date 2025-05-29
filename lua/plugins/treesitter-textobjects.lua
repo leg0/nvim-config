@@ -13,8 +13,8 @@ local textobjects_config = function()
         ["l="] = { query = "@assignment.lhs", desc = "Select left hand side of an assignment" },
         ["r="] = { query = "@assignment.rhs", desc = "Select right hand side of an assignment" },
         --
-        -- ["aa"] = { query = "@parameter.outer", desc = "Select outer part of a parameter/argument" },
-        -- ["ia"] = { query = "@parameter.inner", desc = "Select inner part of a parameter/argument" },
+        ["ap"] = { query = "@parameter.outer", desc = "Select outer part of a parameter/argument" },
+        ["ip"] = { query = "@parameter.inner", desc = "Select inner part of a parameter/argument" },
         --
         -- ["ai"] = { query = "@conditional.outer", desc = "Select outer part of a conditional" },
         -- ["ii"] = { query = "@conditional.inner", desc = "Select inner part of a conditional" },
@@ -28,8 +28,8 @@ local textobjects_config = function()
         ["af"] = { query = "@function.outer", desc = "Select outer part of a method/function definition" },
         ["if"] = { query = "@function.inner", desc = "Select inner part of a method/function definition" },
 
-        -- ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
-        -- ["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
+        ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
+        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
     }, -- keymaps
   }
 
