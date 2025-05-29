@@ -11,12 +11,21 @@ return {
   config = function()
     require'nvim-treesitter.configs'.setup {
       parser_install_dir = "~/.local/share/nvim/lazy/nvim-treesitter",
-      ensure_installed = { "cpp", "lua", },
+      ensure_installed = {
+        "bash",
+        "cmake",
+        "cpp",
+        "gitignore",
+        "lua",
+        "python",
+        "rust",
+        "typescript",
+      },
       sync_install = false,
       auto_install = false,
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = true,
+        -- additional_vim_regex_highlighting = true,
         -- disable = { TODO: disable for vim help }
       },
       indent = {
