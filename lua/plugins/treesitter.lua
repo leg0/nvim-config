@@ -19,6 +19,7 @@ return {
         "lua",
         "python",
         "rust",
+        "sql",
         "typescript",
       },
       sync_install = false,
